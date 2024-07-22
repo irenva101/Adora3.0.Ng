@@ -1,0 +1,9 @@
+.private-layout-content{
+    display: flex;
+    min-height: 100vh;
+
+    .private-layout-router-outlet{
+        margin: 1rem 2rem;
+        flex: 1;
+    }
+}
