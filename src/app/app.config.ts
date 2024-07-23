@@ -9,6 +9,7 @@ import { AppConfig } from './config/config';
 import { ToastrService, provideToastr } from 'ngx-toastr';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,6 +22,6 @@ export const appConfig: ApplicationConfig = {
     provideToastr(),
     provideAnimations(),
     provideAnimationsAsync(), 
-    ]
+    ],
 };
 

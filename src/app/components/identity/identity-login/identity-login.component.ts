@@ -18,46 +18,46 @@ export class IdentityLoginComponent implements OnInit {
     @Inject(DOCUMENT) private document: Document) { }
 
   ngOnInit(): void {
-    if (this.authService.isLoggedIn()) {
-      this.router.navigate(['home']);
-    }
-    else {
-      if(environment.useOpenIdDict)
-      {
-          this.authService.loginIdentity().subscribe(response => {
-            this.document.location.href = response;
-          });
-      }
-      else{
-        this.openPrompt();
-      }
-    }
+    // if (this.authService.isLoggedIn()) {
+    //   this.router.navigate(['home']);
+    // }
+    // else {
+    //   if(environment.useOpenIdDict)
+    //   {
+    //       this.authService.loginIdentity().subscribe(response => {
+    //         this.document.location.href = response;
+    //       });
+    //   }
+    //   else{
+    //     this.openPrompt();
+    //   }
+    // }
   }
 
   openPrompt(): void {
-    const userInput = prompt('Unesite email:');
-    if (userInput !== null) {
-      this.authService.loginLocal(userInput).subscribe((response : any) => {
-        if(response.status == 200)
-        {
-          localStorage.setItem("token",response.message)
-          this.router.navigate(['home'])
-        }
-        else
-        {
-          this.toastr.error('Bad credentials.');
-          setTimeout(() => {
-            this.openPrompt();
-          }, 1000);
-        }
+    // const userInput = prompt('Unesite email:');
+    // if (userInput !== null) {
+    //   this.authService.loginLocal(userInput).subscribe((response : any) => {
+    //     if(response.status == 200)
+    //     {
+    //       localStorage.setItem("token",response.message)
+    //       this.router.navigate(['home'])
+    //     }
+    //     else
+    //     {
+    //       this.toastr.error('Bad credentials.');
+    //       setTimeout(() => {
+    //         this.openPrompt();
+    //       }, 1000);
+    //     }
 
-      }, error => {
-        this.toastr.error('An error occurred.');
-        setTimeout(() => {
-          this.openPrompt();
-        }, 1000);      });
-    } else {
-      this.openPrompt();
-    }
+    //   }, error => {
+    //     this.toastr.error('An error occurred.');
+    //     setTimeout(() => {
+    //       this.openPrompt();
+    //     }, 1000);      });
+    // } else {
+    //   this.openPrompt();
+    // }
   }
 }
